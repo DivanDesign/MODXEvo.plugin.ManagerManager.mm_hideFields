@@ -1,7 +1,7 @@
 <?php
 /**
  * mm_hideFields
- * @version 1.1 (2012-11-13)
+ * @version 1.1.1 (2013-05-16)
  * 
  * @desc A widget for ManagerManager plugin that allows one or more of the default document fields or template variables to be hidden within the manager.
  * 
@@ -11,9 +11,9 @@
  * @param $roles {comma separated string} - The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
  * @param $templates {comma separated string} - Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
  * 
- * @link http://code.divandesign.biz/modx/mm_hidefields/1.1
+ * @link http://code.divandesign.biz/modx/mm_hidefields/1.1.1
  * 
- * @copyright 2012
+ * @copyright 2013
  */
 
 function mm_hideFields($fields, $roles = '', $templates = ''){
@@ -39,6 +39,7 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 				break;
 				
 				case 'hidemenu':
+				case 'hide_menu':
 				case 'show_in_menu':
 					$output .= '$j("input[name=hidemenucheck]").parent("td").hide();';
 				break;
