@@ -2,14 +2,14 @@
 /**
  * mm_hideFields
  * @version 1.1.1 (2013-05-16)
- *
- * Hide a field.
+ * 
+ * @desc A widget for ManagerManager plugin that allows one or more of the default document fields or template variables to be hidden within the manager.
  * 
  * @uses ManagerManager plugin 0.4.
  * 
- * @param fields {comma separated string} - Поля документа (или TV), которые необходимо скрыть. @required
- * @param roles {comma separated string - Роли, для которых необходимо применить виждет, пустое значение — все роли.
- * @param templates {comma separated string} - Id шаблонов, для которых необходимо применить виджет, пустое значение — все шаблоны.
+ * @param $fields {comma separated string} - The name(s) of the document fields (or TVs) this should apply to. @required
+ * @param $roles {comma separated string} - The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
+ * @param $templates {comma separated string} - Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
  * 
  * @link http://code.divandesign.biz/modx/mm_hidefields/1.1.1
  * 
