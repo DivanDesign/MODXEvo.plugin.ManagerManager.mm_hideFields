@@ -2,14 +2,14 @@
 /**
  * mm_hideFields
  * @version 1.1.1 (2013-05-16)
- * 
- * @desc A widget for ManagerManager plugin that allows one or more of the default document fields or template variables to be hidden within the manager.
+ *
+ * Hide a field.
  * 
  * @uses ManagerManager plugin 0.4.
  * 
- * @param $fields {comma separated string} - The name(s) of the document fields (or TVs) this should apply to. @required
- * @param $roles {comma separated string} - The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
- * @param $templates {comma separated string} - Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
+ * @param fields {comma separated string} - Поля документа (или TV), которые необходимо скрыть. @required
+ * @param roles {comma separated string - Роли, для которых необходимо применить виждет, пустое значение — все роли.
+ * @param templates {comma separated string} - Id шаблонов, для которых необходимо применить виджет, пустое значение — все шаблоны.
  * 
  * @link http://code.divandesign.biz/modx/mm_hidefields/1.1.1
  * 
@@ -31,22 +31,22 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 			switch ($field){
 				// Exceptions
 				case 'keywords':
-					$output .= '$j("select[name*=keywords]").parent("td").hide();';
+					$output .= '$j("select[name*=\'keywords\']").parent("td").hide();';
 				break;
 				
 				case 'metatags':
-					$output .= '$j("select[name*=metatags]").parent("td").hide()';
+					$output .= '$j("select[name*\'=metatags\']").parent("td").hide()';
 				break;
 				
 				case 'hidemenu':
 				case 'hide_menu':
 				case 'show_in_menu':
-					$output .= '$j("input[name=hidemenucheck]").parent("td").hide();';
+					$output .= '$j("input[name=\'hidemenucheck\']").parent("td").hide();';
 				break;
 				
 				case 'menuindex':
-					$output .= '$j("input[name=menuindex]").parents("table").parent("td").prev("td").children("span.warning").hide();' ."\n";
-					$output .= '$j("input[name=menuindex]").parent("td").hide();';
+					$output .= '$j("input[name=\'menuindex\']").parents("table").parent("td").prev("td").children("span.warning").hide();' ."\n";
+					$output .= '$j("input[name=\'menuindex\']").parent("td").hide();';
 				break;
 				
 				case 'which_editor':
@@ -60,19 +60,19 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 				break;
 				
 				case 'pub_date':
-					$output .= '$j("input[name=pub_date]").parents("tr").next("tr").hide(); '."\n";
-					$output .= '$j("input[name=pub_date]").parents("tr").hide(); ';
+					$output .= '$j("input[name=\'pub_date\']").parents("tr").next("tr").hide(); '."\n";
+					$output .= '$j("input[name=\'pub_date\']").parents("tr").hide(); ';
 				break;
 				
 				case 'unpub_date':
-					$output .= '$j("input[name=unpub_date]").parents("tr").next("tr").hide(); '."\n";
-					$output .= '$j("input[name=unpub_date]").parents("tr").hide(); ';
+					$output .= '$j("input[name=\'unpub_date\']").parents("tr").next("tr").hide(); '."\n";
+					$output .= '$j("input[name=\'unpub_date\']").parents("tr").hide(); ';
 				break;
 				
 				// Ones that follow the regular pattern
 				default:
 					if (isset($mm_fields[$field])){ // Check the fields exist,  so we're not writing JS for elements that don't exist
-						$output .= '$j("'.$mm_fields[$field]['fieldtype'].'[name='.$mm_fields[$field]['fieldname'].']").parents("tr").hide().next("tr").find("td[colspan=2]").parent("tr").hide(); ';
+						$output .= '$j("'.$mm_fields[$field]['fieldtype'].'[name=\''.$mm_fields[$field]['fieldname'].'\']").parents("tr").hide().next("tr").find("td[colspan=2]").parent("tr").hide(); ';
 					}
 				break;
 			}
