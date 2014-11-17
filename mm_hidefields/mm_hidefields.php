@@ -27,7 +27,7 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 	if ($e->name == 'OnDocFormRender' && useThisRule($roles, $templates)){
 		global $mm_fields;
 		
-		$output = "//---------- mm_hideFields (".count($fields)."):".implode(", ", $fields).": Begin -----\n";
+		$output = "//---------- mm_hideFields :: Begin -----\n";
 		
 		foreach ($fields as $field){
 			switch ($field){
@@ -78,9 +78,11 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 					}
 				break;
 			}
+			
+			$output .= "//---------- mm_hideFields :: End -----\n";
+			
+			$e->output($output);
 		}
-		$output .= "//---------- mm_hideFields :: End -----\n";
-		$e->output($output);
 	}
 }
 ?>
