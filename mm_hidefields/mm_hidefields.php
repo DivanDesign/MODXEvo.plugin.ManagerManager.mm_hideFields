@@ -20,12 +20,12 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 	global $modx;
 	$e = &$modx->Event;
 	
-	// if we've been supplied with a string, convert it into an array
-	$fields = makeArray($fields);
-	
 	// if the current page is being edited by someone in the list of roles, and uses a template in the list of templates
 	if ($e->name == 'OnDocFormRender' && useThisRule($roles, $templates)){
 		global $mm_fields;
+		
+		// if we've been supplied with a string, convert it into an array
+		$fields = makeArray($fields);
 		
 		$output = "//---------- mm_hideFields (".count($fields)."):".implode(", ", $fields).": Begin -----\n";
 		
