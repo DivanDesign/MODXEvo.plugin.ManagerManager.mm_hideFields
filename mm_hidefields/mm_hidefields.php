@@ -67,7 +67,7 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 				default:
 					//Check the fields exist,  so we're not writing JS for elements that don't exist
 					if (isset($mm_fields[$field])){
-						$output .= '$j("'.$mm_fields[$field]['fieldtype'].'[name=\''.$mm_fields[$field]['fieldname'].'\']").parents("tr").hide().next("tr").find("td[colspan=2]").parent("tr").hide();'."\n";
+						$output .= '$j("[name=\''.$mm_fields[$field]['fieldname'].'\']").parents("tr").hide().next("tr").find("td[colspan=2]").parent("tr").hide();'."\n";
 					}
 				break;
 			}
