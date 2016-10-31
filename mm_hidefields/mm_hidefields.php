@@ -28,52 +28,52 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 		// if we've been supplied with a string, convert it into an array
 		$fields = makeArray($fields);
 		
-		$output = "//---------- mm_hideFields :: Begin -----\n";
+		$output = '//---------- mm_hideFields :: Begin -----'.PHP_EOL;
 		
 		foreach ($fields as $field){
 			switch ($field){
 				//Exceptions
 				case 'keywords':
-					$output .= '$j("select[name*=\'keywords\']").parent("td").hide();'."\n";
+					$output .= '$j("select[name*=\'keywords\']").parent("td").hide();'.PHP_EOL;
 				break;
 				
 				case 'metatags':
-					$output .= '$j("select[name*=\'metatags\']").parent("td").hide()'."\n";
+					$output .= '$j("select[name*=\'metatags\']").parent("td").hide()'.PHP_EOL;
 				break;
 				
 				case 'which_editor':
-					$output .= '$j("select#which_editor").prev("span.warning").hide();'."\n";
-					$output .= '$j("select#which_editor").hide();'."\n";
+					$output .= '$j("select#which_editor").prev("span.warning").hide();'.PHP_EOL;
+					$output .= '$j("select#which_editor").hide();'.PHP_EOL;
 				break;
 				
 				case 'content':
 					//For 1.0.0
-					$output .= '$j("#sectionContentHeader, #sectionContentBody").hide();'."\n";
+					$output .= '$j("#sectionContentHeader, #sectionContentBody").hide();'.PHP_EOL;
 					//For 1.0.1
-					$output .= '$j("#ta").parent("div").parent("div").hide().prev("div").hide();'."\n";
+					$output .= '$j("#ta").parent("div").parent("div").hide().prev("div").hide();'.PHP_EOL;
 				break;
 				
 				case 'pub_date':
-					$output .= '$j("input[name=\'pub_date\']").parents("tr").next("tr").hide();'."\n";
-					$output .= '$j("input[name=\'pub_date\']").parents("tr").hide();'."\n";
+					$output .= '$j("input[name=\'pub_date\']").parents("tr").next("tr").hide();'.PHP_EOL;
+					$output .= '$j("input[name=\'pub_date\']").parents("tr").hide();'.PHP_EOL;
 				break;
 				
 				case 'unpub_date':
-					$output .= '$j("input[name=\'unpub_date\']").parents("tr").next("tr").hide();'."\n";
-					$output .= '$j("input[name=\'unpub_date\']").parents("tr").hide();'."\n";
+					$output .= '$j("input[name=\'unpub_date\']").parents("tr").next("tr").hide();'.PHP_EOL;
+					$output .= '$j("input[name=\'unpub_date\']").parents("tr").hide();'.PHP_EOL;
 				break;
 				
 				//Ones that follow the regular pattern
 				default:
 					//Check the fields exist,  so we're not writing JS for elements that don't exist
 					if (isset($mm_fields[$field])){
-						$output .= '$j("'.$mm_fields[$field]['fieldtype'].'[name=\''.$mm_fields[$field]['fieldname'].'\']").parents("tr").hide().next("tr").find("td[colspan=2]").parent("tr").hide();'."\n";
+						$output .= '$j("'.$mm_fields[$field]['fieldtype'].'[name=\''.$mm_fields[$field]['fieldname'].'\']").parents("tr").hide().next("tr").find("td[colspan=2]").parent("tr").hide();'.PHP_EOL;
 					}
 				break;
 			}
 		}
 		
-		$output .= "//---------- mm_hideFields :: End -----\n";
+		$output .= '//---------- mm_hideFields :: End -----'.PHP_EOL;
 		
 		$e->output($output);
 	}
