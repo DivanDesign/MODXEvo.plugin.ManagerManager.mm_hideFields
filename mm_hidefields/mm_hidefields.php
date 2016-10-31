@@ -50,17 +50,17 @@ function mm_hideFields($fields, $roles = '', $templates = ''){
 					//For 1.0.0
 					$output .= '$j("#sectionContentHeader, #sectionContentBody").hide();'.PHP_EOL;
 					//For 1.0.1
-					$output .= '$j("#ta").parent("div").parent("div").hide().prev("div").hide();'.PHP_EOL;
+					$output .= '$j.ddMM.fields.content.$elem.parent("div").parent("div").hide().prev("div").hide();'.PHP_EOL;
 				break;
 				
 				case 'pub_date':
-					$output .= '$j("input[name=\'pub_date\']").parents("tr").next("tr").hide();'.PHP_EOL;
-					$output .= '$j("input[name=\'pub_date\']").parents("tr").hide();'.PHP_EOL;
+					$output .= '$j.ddMM.fields.'.$field.'.$elem.parents("tr").next("tr").hide();'.PHP_EOL;
+					$output .= '$j.ddMM.fields.'.$field.'.$elem.parents("tr").hide();'.PHP_EOL;
 				break;
 				
 				case 'unpub_date':
-					$output .= '$j("input[name=\'unpub_date\']").parents("tr").next("tr").hide();'.PHP_EOL;
-					$output .= '$j("input[name=\'unpub_date\']").parents("tr").hide();'.PHP_EOL;
+					$output .= '$j.ddMM.fields.'.$field.'.$elem.parents("tr").next("tr").hide();'.PHP_EOL;
+					$output .= '$j.ddMM.fields.'.$field.'.$elem.parents("tr").hide();'.PHP_EOL;
 				break;
 				
 				//Ones that follow the regular pattern
