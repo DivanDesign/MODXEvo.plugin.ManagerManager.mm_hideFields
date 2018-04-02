@@ -6,7 +6,7 @@
  * @desc A widget for ManagerManager plugin that allows one or more of the default document fields or template variables to be hidden within the manager.
  * 
  * @uses MODXEvo >= 1.1.
- * @uses MODXEvo.plugin.ManagerManager >= 0.7.
+ * @uses MODXEvo.plugins.ManagerManager >= 0.7 {@link http://code.divandesign.biz/modx/managermanager }.
  * 
  * @param $fields {string_commaSeparated} — The name(s) of the document fields (or TVs) this should apply to. @required
  * @param $roles {string_commaSeparated} — The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
@@ -17,7 +17,11 @@
  * @copyright 2012–2015
  */
 
-function mm_hideFields($fields, $roles = '', $templates = ''){
+function mm_hideFields(
+	$fields,
+	$roles = '',
+	$templates = ''
+){
 	global $modx;
 	$e = &$modx->Event;
 	
